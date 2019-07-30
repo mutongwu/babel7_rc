@@ -40,7 +40,7 @@ import "regenerator-runtime/runtime";
   * entry: 浏览器特性的全量补丁，要求我们代码的入口处，显式写入上面2句代码引入
   * usage: 部分补丁方式，表示仅polyfill代码中使用到的特性。鉴于打包体积的问题，通常这个会是我们的首选配置。
 * 配置方式(.babelrc)：
-    ```json
+    ```javascript
     {
         "presets": [
             [
@@ -50,7 +50,7 @@ import "regenerator-runtime/runtime";
                     "safari": "8",
                     "android": "4.1"
                 },
-                "corejs": "3", //  defaults to 2
+                "corejs": "3", // default to 2
                 "useBuiltIns": "usage"
             }
             ]
@@ -83,7 +83,7 @@ npm install --save-dev @babel/plugin-transform-runtime
 npm install --save @babel/runtime
 ```
 则 .babelrc修改后变为：
-```json
+```javascript
 {
     "presets": [
         [
@@ -125,11 +125,12 @@ var Circle = function Circle() {
 };
 ```
 但是，这里其实还有问题，那就是@babel/plugin-transform-runtime 在使用 @babel/runtime 的时候，其实有多个版本选择：  
-corejs option| Install command | note |
---| -- | --
-false | npm install --save @babel/runtime | 
-2 | npm install --save @babel/runtime-corejs2 | 只支持全局对象和静态方法（eg. Promise, Array.from）
-3 | npm install --save @babel/runtime-corejs3 | 额外支持实例方法(eg. [].includes())
+
+|corejs option| Install command | note |
+| :-----| ----: | :----: |
+|false | npm install --save @babel/runtime |  |
+|2 | npm install --save @babel/runtime-corejs2 | 只支持全局对象和静态方法（eg. Promise, Array.from）|
+|3 | npm install --save @babel/runtime-corejs3 | 额外支持实例方法(eg. [].includes()) |
 
 因此，配套使用效果自然更好，我们重新安装一下：
 ```
@@ -148,7 +149,7 @@ babelrc 最后的配置：
                 "safari": "8",
                 "android": "4.1"
             },
-            "corejs": "3", //  can also be a specific version： 3.1
+            "corejs": "3",
             "useBuiltIns": "usage"
         }
         ]
