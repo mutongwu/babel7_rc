@@ -1,0 +1,30 @@
+{
+  "name": "babel7_rc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "gulp": "gulp build --gulpfile config/gulpfile.js ",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+    "@babel/plugin-transform-runtime": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/runtime": "^7.5.5",
+    "@babel/runtime-corejs3": "^7.5.5",
+    "babel-loader": "^8.0.6",
+    "core-js": "^3.1.4",
+    "gulp": "^4.0.2",
+    "regenerator-runtime": "^0.13.3",
+    "webpack": "3",
+    "webpack-cli": "^3.3.6",
+    "webpack-stream": "^5.2.1"
+  }
+}
